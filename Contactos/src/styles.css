@@ -1,1 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+.sombra{
+        box-shadow: 10px 10px 0px 0px #fafafa;
+       -webkit-box-shadow:10px 10px 0px 0px #fafafa;
+       -moz-box-shadow: 10px 10px 0px 0px #fafafa;
+   }

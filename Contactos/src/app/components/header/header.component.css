@@ -7,13 +7,7 @@ div{
 padding-bottom: 20px;
 }
 
-
 .divnav{ color: #1d446e;
     font-weight : 600;
     background-color: #a5c9f1;
-}
-.sombra{
-     box-shadow: 10px 10px 0px 0px #fafafa;
-    -webkit-box-shadow:10px 10px 0px 0px #fafafa;
-    -moz-box-shadow: 10px 10px 0px 0px #fafafa;
 }
