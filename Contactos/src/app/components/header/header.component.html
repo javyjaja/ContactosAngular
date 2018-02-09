@@ -1,3 +1,24 @@
-<p>
-  header works!
-</p>
+<div class="row">
+    <div class="text-center col-md-12">
+        <h1>Bienvenido</h1>
+    </div>
+    <div class="col-md-6 text-left pading">
+        {{ fechaActual }}
+    </div>
+    <div class="col-md-6 text-right pading">
+        {{ horaActual }}
+    </div>  
+    <div class="divnav col-md-12 sombra">
+        <nav class="nav">
+            <div class="nav-item" routerLinkActive="active">
+                <a class="nav-link js-scroll-trigger" [routerLink]="['perfil']">Mi Perfil</a>
+            </div>
+              <div class="nav-item" routerLinkActive="active">
+                <a class="nav-link js-scroll-trigger"  [routerLink]="['nuevo']">Agregar Contacto</a>
+              </div>
+              <div class="nav-item" routerLinkActive="active">
+                <a class="nav-link js-scroll-trigger"  [routerLink]="['contactos']">Lista de Contactos.</a>
+              </div>
+          </nav>
+        </div>
+</div>
