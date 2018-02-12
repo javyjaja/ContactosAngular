@@ -13,6 +13,7 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { NuevoContactoComponent } from './components/nuevo-contacto/nuevo-contacto.component';
 import { ContactosComponent } from './components/contactos/contactos.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ListaContactosComponent } from './components/lista-contactos/lista-contactos.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { FooterComponent } from './components/footer/footer.component';
     PerfilComponent,
     NuevoContactoComponent,
     ContactosComponent,
-    FooterComponent
+    FooterComponent,
+    ListaContactosComponent
   ],
   imports: [
     BrowserModule,

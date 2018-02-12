@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contactos.component.css']
 })
 export class ContactosComponent implements OnInit {
-
+nombre:string = " Javier Hernandez Rangel"
   constructor() { }
 
   ngOnInit() {
