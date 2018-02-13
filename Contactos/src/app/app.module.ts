@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule} from '@angular/forms';
+import { HttpModule} from '@angular/http';
 
 //Routes
 import{ APP_ROUTING } from './app.routes';
@@ -14,7 +16,8 @@ import { NuevoContactoComponent } from './components/nuevo-contacto/nuevo-contac
 import { ContactosComponent } from './components/contactos/contactos.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ListaContactosComponent } from './components/lista-contactos/lista-contactos.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { ContactosService } from './contactos.service';
 
 @NgModule({
   declarations: [
@@ -28,9 +31,11 @@ import { ListaContactosComponent } from './components/lista-contactos/lista-cont
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpModule,
     APP_ROUTING
   ],
-  providers: [],
+  providers: [ContactosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

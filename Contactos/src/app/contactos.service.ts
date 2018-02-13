@@ -1,42 +1,60 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ContactoModel } from './components/contactos/contactoModel';
+import { HttpClientModule } from '@angular/common/http';
+import { ContactoModel } from './models/ContactoModel';
+import { Http,Headers } from '@angular/http';
+import 'rxjs/Rx';
 
 @Injectable()
 export class ContactosService {
-
+url:string = 'https://contactosangular.firebaseio.com/.json';
   constructor(
-    private http: HttpClient
+    private http: Http
   ) { }
 
-  getContactos(success: (contactos: ContactoModel[]) => void,
-  error: (message: string) => void
-) {
-
-  let url = 'https://baas.kinvey.com/appdata/kid_ByzNdhm8z/movies';
-  let headers = {
-    'Content-Type': 'application/json',
-    'Authorization': 'Basic a2lkX0J5ek5kaG04ejo4NDg3NTE5MGQwZDE0NWJkOGU4OGZlOTQ0ZDYyNjIxNg==',
-    'X-Kinvey-API-Version': '3'
-  };
-
-  this.http.get(url, { headers: headers }).subscribe(
-    data => {
-      let contactos: ContactoModel[] = [];
-
-      for (let contactoJson of data as Array<any>) {
-        const contacto:ContactoModel = {
-          identifier: contactoJson._id,
-          nombre:contactoJson.titulo,
-          telefono:contactoJson.descripcion
-        };
-        contactos.push(contacto);
-      }
-      success(contactos);
-    },
-    err => {
-      error('Ocurrio un error al consultar la lista de peliculas');
+nuevoContacto(contacto:ContactoModel){
+    let body = JSON.stringify(contacto);
+    let headers = new Headers({
+        'Content-Type':'application/json'
     });
+
+    return this.http.post(this.url,body,{headers:headers})
+    .map(res=>{
+        console.log(res.json());
+        return res.json();
+    });
+}
+
+  getContactos(){
+    let url = 'https://contactosangular.firebaseio.com/.json';
+    let headers = {
+        'Content-Type': 'application/json'
+    };
+    //return this.http.get(url,{ headers: headers }).toPromise();
+  }
+
+
+  getContactos2() {
+      let url = 'https://contactosangular.firebaseio.com/.json';
+      let headers = {
+          'Content-Type': 'application/json'
+      };
+
+     // this.http.get(url).subscribe(
+       // data => {
+         //   let contactos: ContactoModel[] = [];
+
+           // for (let contactoJson of data as Array<any>) {
+             //   const contacto:ContactoModel = {
+               //     id: contactoJson.id,
+                 //   nombre:contactoJson.nombre,
+                   // telefono:contactoJson.telefono
+               // };
+                //contactos.push(contacto);
+            //};
+      //return (contactos);
+    //},
+   // );
 
 }
 

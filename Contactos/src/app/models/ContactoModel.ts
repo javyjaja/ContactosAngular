@@ -1,11 +1,11 @@
 export class ContactoModel{
-        identifier:string;
         nombre:string;
         telefono:string;
+        key$?:string;
            
         constructor(){
-            this.identifier="";
-           this.nombre="";
+            this.nombre="";
            this.telefono ="";
+           
         }
     }

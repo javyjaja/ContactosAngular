@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ContactosService } from '../../contactos.service';
+import { ContactoModel } from '../../models/ContactoModel';
 
 @Component({
   selector: 'app-contactos',
@@ -6,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contactos.component.css']
 })
 export class ContactosComponent implements OnInit {
-nombre:string = " Javier Hernandez Rangel"
-  constructor() { }
+  @Input() contacto: ContactoModel;
+    constructor(private cotactoService:ContactosService) { }
 
   ngOnInit() {
   }

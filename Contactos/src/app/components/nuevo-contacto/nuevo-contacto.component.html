@@ -1,15 +1,21 @@
 <div class="row pading">
     <div class="col-md-12">
+            <form (ngSubmit)="guardar()" #forma="ngForm">
         <div class="form-group">
             <label class="label">Nombre</label>
-            <input type="text"  value="" placeholder="Nombre completo" class="form-control"  />
+            <input 
+                [(ngModel)] = "contacto.nombre" name="nombre"
+                type="text"  value="" placeholder="Nombre completo" class="form-control"  />
         </div>
         <div class="form-group">
             <label class="label">Teléfono</label>
-            <input type="text"  value="" placeholder="Teléfono" class="form-control"  />
+            <input
+                [(ngModel)] = "contacto.telefono" name="telefono"
+            type="text"  value="" placeholder="Teléfono" class="form-control"  />
         </div>
         <div class="form-group text-center">
-            <button class="btn btn-info btn-xs">Guardar</button>
+            <button type="submit" name="button" class="btn btn-info btn-xs">Guardar</button>
         </div>
+        </form>
     </div>
 </div>

@@ -1,3 +1,9 @@
-<app-contactos></app-contactos>
+
+<div>
+         - {{contactos.nombre}} -
+</div>
+
+<div *ngFor="let contacto of contactos"> {{contacto.nombre}}</div>
+
 <app-contactos *ngFor="let contacto of contactos"
 [contacto]="contacto"></app-contactos>
