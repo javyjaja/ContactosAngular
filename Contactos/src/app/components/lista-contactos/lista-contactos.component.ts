@@ -10,17 +10,23 @@ import { ContactoModel } from '../../models/ContactoModel';
 export class ListaContactosComponent implements OnInit {
   contactos: ContactoModel[];
   constructor(
-    private contactoService:ContactosService
+    private _contactoService:ContactosService
   ) { 
     
   }
 
   ngOnInit() {
     this.contactos = [];
-//    this.contactoService.getContactos().then((datos:ContactoModel[])=> {
-  //    this.contactos = datos;
-    //});
+    this._contactoService.traerTodos().subscribe(data=>{
+      this.contactos=data;
+    })
     
   }
+
+  traerTodos(){
+    this._contactoService.traerTodos().subscribe(data=>{
+      this.contactos=data;
+    });
+}
 
 }

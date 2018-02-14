@@ -18,6 +18,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ListaContactosComponent } from './components/lista-contactos/lista-contactos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactosService } from './contactos.service';
+import { KeysPipe } from './pipes/keys.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ContactosService } from './contactos.service';
     NuevoContactoComponent,
     ContactosComponent,
     FooterComponent,
-    ListaContactosComponent
+    ListaContactosComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,

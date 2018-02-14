@@ -25,37 +25,33 @@ nuevoContacto(contacto:ContactoModel){
     });
 }
 
-  getContactos(){
-    let url = 'https://contactosangular.firebaseio.com/.json';
-    let headers = {
-        'Content-Type': 'application/json'
-    };
-    //return this.http.get(url,{ headers: headers }).toPromise();
-  }
+traerTodos(){
+    return this.http.get(this.url).map(res=>{return res.json();});
+}
 
+actualizarContacto(contacto:ContactoModel,key$:string)
+{
+  
+  let urlContacto = `https://contactosangular.firebaseio.com/${key$}.json`;
+  let body = JSON.stringify(contacto);
+  let headers = new Headers({
+    'Content-Type':'application/json'
+  });
 
-  getContactos2() {
-      let url = 'https://contactosangular.firebaseio.com/.json';
-      let headers = {
-          'Content-Type': 'application/json'
-      };
+  return this.http.put(urlContacto,body,{headers})
+  .map(res=>{return res.json();});
+}
 
-     // this.http.get(url).subscribe(
-       // data => {
-         //   let contactos: ContactoModel[] = [];
+buscarContacto(key$:string)
+{
+  let urlContacto = `https://contactosangular.firebaseio.com/${key$}.json`;
+  return this.http.get(urlContacto).map(res=>res.json());
+}
 
-           // for (let contactoJson of data as Array<any>) {
-             //   const contacto:ContactoModel = {
-               //     id: contactoJson.id,
-                 //   nombre:contactoJson.nombre,
-                   // telefono:contactoJson.telefono
-               // };
-                //contactos.push(contacto);
-            //};
-      //return (contactos);
-    //},
-   // );
-
+eliminar(key$:string){
+  let urlContacto = `https://contactosangular.firebaseio.com/${key$}.json`;
+  return this.http.delete(urlContacto)
+  .map(res=>{res.json()});
 }
 
 }

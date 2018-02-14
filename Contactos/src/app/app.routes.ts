@@ -7,7 +7,7 @@ import { ListaContactosComponent } from './components/lista-contactos/lista-cont
 
 const APP_ROUTES:Routes = [
 {path:'perfil',component:PerfilComponent},
-{path:'nuevo',component:NuevoContactoComponent},
+{path:'nuevo/:id',component:NuevoContactoComponent},
 {path:'contactos',component:ListaContactosComponent},
 {path:'**', pathMatch:'full',redirectTo:'perfil'}
 ];

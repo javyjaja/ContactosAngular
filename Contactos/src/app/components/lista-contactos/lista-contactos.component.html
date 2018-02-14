@@ -1,9 +1,5 @@
 
-<div>
-         - {{contactos.nombre}} -
-</div>
 
-<div *ngFor="let contacto of contactos"> {{contacto.nombre}}</div>
-
-<app-contactos *ngFor="let contacto of contactos"
-[contacto]="contacto"></app-contactos>
+<app-contactos *ngFor="let k of contactos | keys;"
+[contacto]="contactos[k]"
+[k]="k"></app-contactos>
