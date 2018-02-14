@@ -3,11 +3,13 @@ div{
     padding-right: 50px;
     /*background-color: #8fb7e2;*/
 }
+
 .pading{
-padding-bottom: 20px;
+    padding-bottom: 20px;
 }
 
-.divnav{ color: #1d446e;
+.divnav{ 
+    color: #1d446e;
     font-weight : 600;
     background-color: #a5c9f1;
 }

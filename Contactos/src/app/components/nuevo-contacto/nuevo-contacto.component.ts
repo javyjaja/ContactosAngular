@@ -12,13 +12,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export class NuevoContactoComponent implements OnInit {
     contacto:ContactoModel = {
-      nombre:"",
-      telefono:""
+        nombre:"",
+        telefono:""
     };
 
     nuevo:boolean = false;
     id:string;
     contactos:ContactoModel[] = [];
+    
     constructor(
         private _contactoService:ContactosService,
         private router:Router,
@@ -26,7 +27,6 @@ export class NuevoContactoComponent implements OnInit {
     ) { 
         this.route.params.subscribe(parametros=>{
             this.id = parametros['id']; 
-
         });
     }
 
@@ -37,7 +37,6 @@ export class NuevoContactoComponent implements OnInit {
                 nombre:"",
                 telefono:""
             };
-           
         }
         else{
             this._contactoService.buscarContacto(this.id)
@@ -45,16 +44,15 @@ export class NuevoContactoComponent implements OnInit {
                 this.contacto = data;
             });
         }
-   
     }
 
     guardar(){
         if(this.id == "nuevo")
         {
- this._contactoService.nuevoContacto(this.contacto).subscribe(data=>{
-        alert("Guardado correctamente con id " + data.name);
-        this.router.navigate(['contactos']);
-      });
+            this._contactoService.nuevoContacto(this.contacto).subscribe(data=>{
+                alert("Guardado correctamente con id " + data.name);
+                this.router.navigate(['contactos']);
+            });
         }
         else{
             this._contactoService.actualizarContacto(
@@ -63,13 +61,8 @@ export class NuevoContactoComponent implements OnInit {
                 alert("Actualizado correctamente");
                 this.router.navigate(['contactos']);
             },
-        error=>console.error(error)
-        );
+                error=>console.error(error)
+            );
         }
-
-       
-  }
-
-  
-
+    }
 }

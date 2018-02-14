@@ -1,6 +1,7 @@
 .separado{
         padding-top: 50px;
 }
+
 .sombra{
         border: 1px solid #bdddfd;
 }
@@ -12,4 +13,4 @@
         height: 60px;
         line-height: 60px;
         background-color: #f5f5f5;
-      }
+}
